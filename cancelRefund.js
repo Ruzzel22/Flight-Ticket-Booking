@@ -79,6 +79,7 @@ function cancelBooking(bookingId) {
 
 // Function to handle refund
 function refundBooking(bookingId) {
+    const booking = cancelRefund.find(b => b.bookingID === bookingId);
     const messageElement = document.getElementById("message");
 
     // Display a message confirming the refund
