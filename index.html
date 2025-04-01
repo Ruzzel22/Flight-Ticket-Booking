@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In/Sign Up</title>
+    <!-- Personal CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- LogIn & Register Button -->
+    <div id="btn_user">
+        <button class="btnLogin">Log In</button>
+        <button class="btnRegister">Sign Up</button>
+    </div>
+    
+    <!-- Registration Form -->
+    <form id="container_register">
+        <button type="button" class="btnReturn">Back</button>
+
+        <input type="text" name="user" id="txtUser" placeholder="Enter Username">
+        <input type="email" name="email" id="txtEmail" placeholder="Enter Email">
+        <input type="password" name="password" id="txtPassword" placeholder="Enter Password">
+        <input type="password" name="password" id="txtConfirm" placeholder="Please Confirm Password">
+
+        <div>
+            <button type="submit" class="btnSubmit">Submit</button>
+            <button type="reset" class="btnClear">Clear</button>
+        </div>
+    </form>
+
+    <!-- LogIn Form -->
+    <form id="container_login">
+        <button type="button" class="btnReturn">Back</button>
+
+        <input type="text" name="user" id="logUser" placeholder="Username" required>
+        <input type="password" name="password" id="logPassword" placeholder="Password" required>
+
+        <button type="submit" class="btnLogin">Log In</button>
+    </form>
+
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <!-- JS -->
+    <script src="User.js"></script>
+    <script src="User_Function.js"></script>
+    
+</body>
+</html>

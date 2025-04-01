@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Online Flight Ticket Booking System</title>
+        <link rel="stylesheet" href="online_booking.css">
+        <!-- JQuery -->
+        <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    </head>
+    <body>
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <!-- Logo -->
+            <img id="logo">
+
+            <ul>
+                <li><a>Events</a></li>
+                <li><a>Available Tickets</a></li>
+                <li><a>Electronic Ticket</a></li>
+                <li><a>Payment</a></li>
+                <li><a>Manage Bookings</a></li>
+                <li><a>Cancel/Refund</a></li>
+            </ul>
+
+            <!-- Light/Dark Mode -->
+            <img id="themeToggle">
+        </aside>
+
+        <!-- User -->
+        <header>
+            <div id="user_info"></div>
+        </header>
+
+        <main>
+            <div id="events" class="container">
+                <!-- Content -->
+            </div>
+
+            <div id="available_tickets" class="container">
+                <!-- Content -->
+                <h2>Event Seat Booking System</h2>
+
+                <div class="form-group">
+                    <label>Event:</label>
+                    <input type="text" id="eventName" placeholder="Enter event name">
+                </div>
+                <div class="form-group">
+                    <label>Customer Name:</label>
+                    <input type="text" id="customerName" placeholder="Enter your name">
+                </div>
+            
+                <h3>Select Available Seats</h3>
+                <div id="seatContainer" class="seat-container"></div>
+            
+                <button id="confirmSelection" class="btn-confirm">Confirm </button>
+            
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Event</th>
+                            <th>Customer Name</th>
+                            <th>Seats Selected</th>
+                            <th>Price</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="bookingTable"></tbody>
+                </table>
+            </div>
+
+            <div id="electronic_ticket" class="container">
+                <!-- Content -->
+                <form id="qr_form">
+                    <h1>Electronic Ticket</h1>
+                
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" placeholder="Enter your name">
+    
+                    <label for="event">Movie Title:</label>
+                    <input type="text" id="event" placeholder="Enter movie title">
+    
+                    <label for="date">Date:</label>
+                    <input type="date" id="date">
+    
+                    <label for="time">Time:</label>
+                    <input type="time" id="time">
+    
+                    <label for="seat">Seat Number:</label>
+                    <input type="text" id="seat" placeholder="Enter seat number">
+    
+                    <button id="generateTicket">Generate Ticket</button>
+                </form>
+                <div id="ticketContainer"></div>
+            </div>
+
+            <div id="payment" class="container">
+                <!-- Content -->
+                <h2>Make a Payment</h2>
+                
+                <!-- Payment Form -->
+                <form id="paymentForm"> 
+                    <!-- Card Number Input -->
+                    <label for="cardNumber">Card Number:</label>
+                    <input type="text" id="cardNumber" maxlength="16" placeholder="1234123412341234">
+                    
+                    <!-- Card Holder Name Input -->
+                    <label for="cardHolder">Card Holder:</label>
+                    <input type="text" id="cardHolder" placeholder="John Doe">
+                    
+                    <!-- Expiry Date Selection -->
+                    <label for="expiryMonth">Expiry Date:</label>
+                    <div class="expiry-container">
+                        <select id="expiryMonth"></select> <!-- Dropdown for Month -->
+                        <select id="expiryYear"></select>  <!-- Dropdown for Year -->
+                    </div>
+                    
+                    <!-- CVV Input -->
+                    <label for="cvv">CVV:</label>
+                    <input type="text" id="cvv" maxlength="3" placeholder="123">
+                    
+                    <!-- Payment Amount Input -->
+                    <label for="amount">Amount ($):</label>
+                    <input type="number" id="amount" step="0.01" placeholder="10.00">
+                    
+                    <!-- Submit Payment Button -->
+                    <button type="submit">Pay Now</button>
+                </form>
+
+                <!-- Transaction History Section -->
+                <h2>Transaction History</h2>
+                <ul id="transactionHistory"></ul>
+            </div>
+
+            <div id="booking" class="container">
+                <!-- Content -->
+                <h1>Manage Track Bookings</h1>
+    
+                <label>Name:</label>
+                <input type="text" id="inputName" placeholder="Enter Name"> <br><br>
+                
+                <label>Event:</label>
+                <input type="text" id="inputEvent" placeholder="Enter Event"> <br><br>
+                
+                <label>Seats:</label>
+                <input type="number" id="inputSeats" placeholder="Enter Seats"> <br><br>
+                
+                <button id="addBooking">Add Booking</button>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Event</th>
+                            <th>Seats</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="bookingList">
+                        <!-- Bookings will be dynamically added here -->
+                    </tbody>
+                </table>
+            </div>
+            
+            <div id="cancelRefund" class="container">
+                <!-- Content -->
+                <h2>Cancellations & Refunds</h2>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Booking ID</th>
+                            <th>Customer Name</th>
+                            <th>Flight</th>
+                            <th>Departure</th>
+                            <th>Price</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cancelRefundTable">
+                        <!-- Rows will be dynamically inserted here -->
+                    </tbody>
+                </table>
+                <div id="message"></div>
+            </div>
+        </main>
+
+        <!-- JS (Interface) -->
+        <script src="online_booking.js"></script>
+
+        <!-- JS (Content) -->
+        <script src="event.js"></script>
+        <script src="available_tickets.js"></script>
+        <script src="electronic_ticket.js"></script>
+        <script src="payment.js"></script>
+        <script src="booking.js"></script>
+        <script src="cancelRefund.js"></script>
+        
+    </body>
+</html>
